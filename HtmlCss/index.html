@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuantiMeasure – Login</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/auth.css"/>
+</head>
+<body>
+  <div class="auth-wrapper">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <span class="tag tag1">kg · g · mg</span>
+      <span class="tag tag2">L · mL · µL</span>
+      <span class="tag tag3">m · cm · mm</span>
+      <span class="tag tag4">°C · °F · K</span>
+
+      <div class="illus-wrap">
+        <svg width="130" height="130" viewBox="0 0 140 140" fill="none">
+          <circle cx="70" cy="70" r="65" fill="#1d6fa8" opacity="0.2"/>
+          <rect x="50" y="45" width="40" height="52" rx="4" fill="none" stroke="#0ea9d7" stroke-width="1.5"/>
+          <rect x="50" y="72" width="40" height="25" fill="#0ea9d7" opacity="0.3"/>
+          <line x1="56" y1="62" x2="64" y2="62" stroke="#0ea9d7" stroke-width="1" opacity="0.7"/>
+          <line x1="56" y1="68" x2="68" y2="68" stroke="#0ea9d7" stroke-width="1" opacity="0.7"/>
+          <line x1="56" y1="74" x2="64" y2="74" stroke="#0ea9d7" stroke-width="1" opacity="0.7"/>
+          <line x1="56" y1="80" x2="68" y2="80" stroke="#0ea9d7" stroke-width="1" opacity="0.7"/>
+          <rect x="88" y="38" width="10" height="62" rx="2" fill="#1d6fa8" opacity="0.8"/>
+          <line x1="89" y1="46" x2="94" y2="46" stroke="white" stroke-width="1"/>
+          <line x1="89" y1="52" x2="96" y2="52" stroke="white" stroke-width="1"/>
+          <line x1="89" y1="58" x2="94" y2="58" stroke="white" stroke-width="1"/>
+          <line x1="89" y1="64" x2="96" y2="64" stroke="white" stroke-width="1"/>
+          <line x1="89" y1="70" x2="94" y2="70" stroke="white" stroke-width="1"/>
+          <line x1="89" y1="76" x2="96" y2="76" stroke="white" stroke-width="1"/>
+          <line x1="38" y1="90" x2="52" y2="90" stroke="#0ea9d7" stroke-width="1.5" opacity="0.8"/>
+          <line x1="45" y1="82" x2="45" y2="99" stroke="#0ea9d7" stroke-width="1.5" opacity="0.8"/>
+          <ellipse cx="38" cy="94" rx="6" ry="3" fill="#0ea9d7" opacity="0.3"/>
+          <ellipse cx="52" cy="94" rx="6" ry="3" fill="#0ea9d7" opacity="0.3"/>
+          <circle cx="70" cy="28" r="9" fill="#ffffff" opacity="0.85"/>
+          <path d="M58 55 Q62 38 70 36 Q78 38 82 55" fill="#ffffff" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <h2 class="app-title">Quantity<br/>Measurement<br/>App</h2>
+      <p class="app-sub">Precise unit conversions for mass, volume, length and temperature.</p>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+      <div class="tabs">
+        <button class="tab-btn active" id="loginTab" onclick="switchTab('login')">Login</button>
+        <button class="tab-btn" id="signupTab" onclick="switchTab('signup')">Signup</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+        <div class="field">
+          <label for="loginEmail">Email ID</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required/>
+          <span class="err" id="loginEmailErr"></span>
+        </div>
+        <div class="field">
+          <label for="loginPass">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="loginPass" placeholder="Enter password" required/>
+            <button type="button" class="eye-btn" onclick="togglePass('loginPass', this)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <span class="err" id="loginPassErr"></span>
+        </div>
+        <p class="forgot" onclick="alert('Feature coming soon!')">Forgot password?</p>
+        <div class="msg-box" id="loginMsg"></div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form class="auth-form" id="signupForm" onsubmit="handleSignup(event)">
+        <div class="field">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" placeholder="Your full name" required/>
+          <span class="err" id="signupNameErr"></span>
+        </div>
+        <div class="field">
+          <label for="signupEmail">Email ID</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" required/>
+          <span class="err" id="signupEmailErr"></span>
+        </div>
+        <div class="field">
+          <label for="signupPass">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="signupPass" placeholder="Min 6 characters" required/>
+            <button type="button" class="eye-btn" onclick="togglePass('signupPass', this)">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <span class="err" id="signupPassErr"></span>
+        </div>
+        <div class="field">
+          <label for="signupMobile">Mobile Number</label>
+          <input type="tel" id="signupMobile" placeholder="+91 00000 00000" required/>
+          <span class="err" id="signupMobileErr"></span>
+        </div>
+        <div class="msg-box" id="signupMsg"></div>
+        <button type="submit" class="submit-btn">Signup</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

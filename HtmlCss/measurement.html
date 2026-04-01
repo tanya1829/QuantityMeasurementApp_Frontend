@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuantiMeasure – Measurement Tool</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/measurement.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6fa8"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3h18v4H3z"/><path d="M3 10h10v4H3z"/><path d="M3 17h14v4H3z"/>
+      </svg>
+      <span>QuantiMeasure</span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-user" id="navUser">Hello, User</span>
+      <a href="dashboard.html" class="measure-link">Converter</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="measure-main">
+
+    <div class="measure-header">
+      <h1>Measurement Reference</h1>
+      <p>Quick reference guide for all standard measurement units.</p>
+    </div>
+
+    <!-- MASS SECTION -->
+    <div class="measure-section">
+      <div class="section-title">
+        <span class="section-icon mass-icon">W</span>
+        <h2>Weight Units</h2>
+      </div>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <div class="unit-symbol">kg</div>
+          <div class="unit-name">Kilogram</div>
+          <div class="unit-desc">SI base unit of mass. 1 kg = 1000 g</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">g</div>
+          <div class="unit-name">Gram</div>
+          <div class="unit-desc">1 g = 0.001 kg = 1000 mg</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">mg</div>
+          <div class="unit-name">Milligram</div>
+          <div class="unit-desc">1 mg = 0.001 g = 0.000001 kg</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">µg</div>
+          <div class="unit-name">Microgram</div>
+          <div class="unit-desc">1 µg = 0.001 mg = 1×10⁻⁶ g</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">lb</div>
+          <div class="unit-name">Pound</div>
+          <div class="unit-desc">1 lb = 453.592 g = 0.453 kg</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">oz</div>
+          <div class="unit-name">Ounce</div>
+          <div class="unit-desc">1 oz = 28.3495 g = 0.0625 lb</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">t</div>
+          <div class="unit-name">Metric Ton</div>
+          <div class="unit-desc">1 t = 1000 kg = 1,000,000 g</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">N</div>
+          <div class="unit-name">Newton</div>
+          <div class="unit-desc">1 N ≈ 101.97 g (force on Earth)</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">kN</div>
+          <div class="unit-name">Kilonewton</div>
+          <div class="unit-desc">1 kN = 1000 N ≈ 101.97 kg</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">st</div>
+          <div class="unit-name">Stone</div>
+          <div class="unit-desc">1 st = 14 lb = 6.35 kg</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOLUME SECTION -->
+    <div class="measure-section">
+      <div class="section-title">
+        <span class="section-icon vol-icon">V</span>
+        <h2>Volume Units</h2>
+      </div>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <div class="unit-symbol">L</div>
+          <div class="unit-name">Litre</div>
+          <div class="unit-desc">1 L = 1000 mL = 0.001 m³</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">mL</div>
+          <div class="unit-name">Millilitre</div>
+          <div class="unit-desc">1 mL = 0.001 L = 1 cm³</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">µL</div>
+          <div class="unit-name">Microlitre</div>
+          <div class="unit-desc">1 µL = 0.001 mL = 0.000001 L</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">m³</div>
+          <div class="unit-name">Cubic Meter</div>
+          <div class="unit-desc">1 m³ = 1000 L = 1,000,000 mL</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">gal</div>
+          <div class="unit-name">Gallon (US)</div>
+          <div class="unit-desc">1 gal = 3.785 L = 3785.41 mL</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">fl oz</div>
+          <div class="unit-name">Fluid Ounce</div>
+          <div class="unit-desc">1 fl oz = 29.5735 mL</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">cup</div>
+          <div class="unit-name">Cup (US)</div>
+          <div class="unit-desc">1 cup = 236.588 mL = 8 fl oz</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LENGTH SECTION -->
+    <div class="measure-section">
+      <div class="section-title">
+        <span class="section-icon len-icon">L</span>
+        <h2>Length Units</h2>
+      </div>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <div class="unit-symbol">m</div>
+          <div class="unit-name">Metre</div>
+          <div class="unit-desc">SI base unit of length. 1 m = 100 cm</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">cm</div>
+          <div class="unit-name">Centimetre</div>
+          <div class="unit-desc">1 cm = 0.01 m = 10 mm</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">mm</div>
+          <div class="unit-name">Millimetre</div>
+          <div class="unit-desc">1 mm = 0.1 cm = 0.001 m</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">km</div>
+          <div class="unit-name">Kilometre</div>
+          <div class="unit-desc">1 km = 1000 m = 100,000 cm</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">in</div>
+          <div class="unit-name">Inch</div>
+          <div class="unit-desc">1 in = 2.54 cm = 25.4 mm</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">ft</div>
+          <div class="unit-name">Foot</div>
+          <div class="unit-desc">1 ft = 12 in = 30.48 cm</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">mi</div>
+          <div class="unit-name">Mile</div>
+          <div class="unit-desc">1 mi = 1.609 km = 5280 ft</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPERATURE SECTION -->
+    <div class="measure-section">
+      <div class="section-title">
+        <span class="section-icon temp-icon">T</span>
+        <h2>Temperature Units</h2>
+      </div>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <div class="unit-symbol">°C</div>
+          <div class="unit-name">Celsius</div>
+          <div class="unit-desc">Water freezes at 0°C, boils at 100°C</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">°F</div>
+          <div class="unit-name">Fahrenheit</div>
+          <div class="unit-desc">°F = (°C × 9/5) + 32</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">K</div>
+          <div class="unit-name">Kelvin</div>
+          <div class="unit-desc">K = °C + 273.15. Absolute zero = 0 K</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-symbol">°R</div>
+          <div class="unit-name">Rankine</div>
+          <div class="unit-desc">°R = (°C + 273.15) × 9/5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK REFERENCE TABLE -->
+    <div class="measure-section">
+      <div class="section-title">
+        <span class="section-icon ref-icon">R</span>
+        <h2>Quick Conversion Reference</h2>
+      </div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th>Multiply by</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>kg</td><td>g</td><td>1,000</td></tr>
+            <tr><td>g</td><td>mg</td><td>1,000</td></tr>
+            <tr><td>kg</td><td>lb</td><td>2.20462</td></tr>
+            <tr><td>lb</td><td>kg</td><td>0.45359</td></tr>
+            <tr><td>kg</td><td>N</td><td>9.80665</td></tr>
+            <tr><td>N</td><td>g</td><td>101.972</td></tr>
+            <tr><td>st</td><td>kg</td><td>6.35029</td></tr>
+            <tr><td>L</td><td>mL</td><td>1,000</td></tr>
+            <tr><td>gal (US)</td><td>L</td><td>3.78541</td></tr>
+            <tr><td>m</td><td>cm</td><td>100</td></tr>
+            <tr><td>km</td><td>mi</td><td>0.62137</td></tr>
+            <tr><td>in</td><td>cm</td><td>2.54</td></tr>
+            <tr><td>ft</td><td>m</td><td>0.3048</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

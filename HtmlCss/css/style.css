@@ -1,0 +1,106 @@
+:root {
+  --primary:      #1d6fa8;
+  --primary-dark: #155a8a;
+  --accent:       #0ea9d7;
+  --bg:           #0f1623;
+  --text-dark:    #1a2535;
+  --text-muted:   #7a8ea8;
+  --border:       #d0dce8;
+  --input-bg:     #f7fafd;
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-lg:    18px;
+  --shadow:       0 8px 32px rgba(0,0,0,0.10);
+  --font:         'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button { cursor: pointer; font-family: var(--font); border: none; outline: none; }
+input, select { font-family: var(--font); outline: none; }
+
+/* Shared Navbar */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #dde6ef;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.nav-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+
+.nav-user  { 
+  font-size: 12px; 
+  color: var(--text-muted); 
+}
+
+.measure-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 12px;
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.measure-link:hover { 
+  background: var(--primary); 
+  color: #fff; 
+}
+
+.logout-btn {
+  padding: 5px 14px;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.logout-btn:hover { 
+  border-color: #e24b4b; 
+  color: #e24b4b; 
+  background: #fff5f5; 
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #c5d0db; border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
