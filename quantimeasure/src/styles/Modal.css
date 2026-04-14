@@ -19,10 +19,13 @@
   border-radius: var(--radius);
   padding: 36px;
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
+  min-height: 520px;
   position: relative;
   box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 60px rgba(0,212,184,0.07);
   animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 /* glowing top edge */
@@ -117,8 +120,18 @@
   box-shadow: 0 0 12px rgba(0,212,184,0.15);
 }
 
-.modal-form { display: flex; flex-direction: column; gap: 14px; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
 .form-group label {
   font-size: 10px;
@@ -142,7 +155,10 @@
   transition: all 0.2s;
 }
 
-.form-group input::placeholder { color: var(--text-muted); }
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
 .form-group input:focus {
   border-color: var(--teal);
   box-shadow: 0 0 0 2px rgba(0,212,184,0.12), 0 0 16px rgba(0,212,184,0.06);
@@ -182,13 +198,17 @@
   box-shadow: 0 8px 30px rgba(0,212,184,0.5);
 }
 
-.modal-submit-btn:disabled { opacity: 0.4; cursor: wait; }
+.modal-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: wait;
+}
 
 .modal-switch {
   text-align: center;
   font-size: 13px;
   color: var(--text-muted);
   font-family: var(--font-display);
+  margin-top: auto;
 }
 
 .modal-switch button {
@@ -203,4 +223,70 @@
   text-decoration-style: dotted;
 }
 
-.modal-switch button:hover { color: var(--cyan); }
+.modal-switch button:hover {
+  color: var(--cyan);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .modal-box {
+    max-width: 100%;
+    min-height: auto;
+    padding: 28px;
+  }
+}
+/* Google Sign-In Button */
+.modal-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-divider::before,
+.modal-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-mid);
+}
+
+.google-signin-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.3px;
+}
+
+.google-signin-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-hot);
+  box-shadow: 0 4px 12px rgba(0,212,184,0.15);
+}
+
+.google-signin-btn:active {
+  transform: scale(0.98);
+}
+
+.google-icon {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0;
+}
