@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Modal.css";
 
+const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000/api/v1";
+
 const LoginModal = ({ onClose, onLogin }) => {
   const [mode, setMode] = useState("login");
   const [name, setName] = useState("");
@@ -17,18 +19,15 @@ const LoginModal = ({ onClose, onLogin }) => {
     const userName = params.get("name");
 
     if (token && userEmail) {
-      // Store token in localStorage
       localStorage.setItem("accessToken", token);
       localStorage.setItem("userEmail", userEmail);
       localStorage.setItem("userName", userName || userEmail.split("@")[0]);
 
-      // Call onLogin callback
       onLogin({
         name: userName || userEmail.split("@")[0],
         email: userEmail,
       });
 
-      // Clean up URL
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, [onLogin]);
@@ -46,9 +45,9 @@ const LoginModal = ({ onClose, onLogin }) => {
     setError("");
 
     try {
-      const endpoint = mode === "login" ? "/api/v1/auth/login" : "/api/v1/auth/register";
+      const endpoint = mode === "login" ? "/auth/login" : "/auth/register";
       const body = mode === "login" ? { email, password } : { name, email, password };
-      const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
       const res = await fetch(`${API_BASE}${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -75,8 +74,7 @@ const LoginModal = ({ onClose, onLogin }) => {
   };
 
   const handleGoogleLogin = () => {
-    const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
-    window.location.href = `${API_BASE}/api/v1/auth/google-login`;
+    window.location.href = `${API_BASE}/auth/google-login`;
   };
 
   const handleKeyDown = (e) => {
@@ -166,12 +164,10 @@ const LoginModal = ({ onClose, onLogin }) => {
               : "Create Account"}
           </button>
 
-          {/* Divider */}
           <div className="modal-divider">
             <span>or</span>
           </div>
 
-          {/* Google Sign-In Button */}
           <button className="google-signin-btn" onClick={handleGoogleLogin}>
             <svg className="google-icon" viewBox="0 0 24 24">
               <path
